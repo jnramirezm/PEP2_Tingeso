@@ -29,7 +29,7 @@ spring:
           uri: lb://laboratorio-service
           predicates:
             - Path=/laboratorio/**
-	- id: pago-service
+        - id: pago-service
           uri: lb://pago-service
           predicates:
             - Path=/pago/**
