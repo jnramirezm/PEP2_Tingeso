@@ -6,7 +6,7 @@ spring:
       enabled: true
       uri: http://localhost:8081
   datasource:
-    url: jdbc:postgresql://postgres-db:5432/proveedor?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:postgresql://localhost:5432/proveedor?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
     username: postgres
     password: 1234
   jpa:
