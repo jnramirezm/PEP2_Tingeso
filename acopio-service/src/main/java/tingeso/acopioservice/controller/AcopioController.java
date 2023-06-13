@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/acopios")
+@RequestMapping("/acopio")
 public class AcopioController {
 
     @Autowired

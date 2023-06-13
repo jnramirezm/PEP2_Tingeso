@@ -11,7 +11,7 @@ import tingeso.pagoservice.service.PagoService;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/pagos")
+@RequestMapping("/pago")
 public class PagoController {
 
     @Autowired
