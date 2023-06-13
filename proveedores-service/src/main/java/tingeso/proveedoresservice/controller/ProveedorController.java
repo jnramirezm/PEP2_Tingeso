@@ -11,7 +11,7 @@ import tingeso.proveedoresservice.service.ProveedorService;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/proveedores")
+@RequestMapping("/proveedor")
 public class ProveedorController {
 
     @Autowired
