@@ -20,13 +20,12 @@ public class ProveedorController {
 
 
     @PostMapping("/cargarProveedor")
-    private void proveedorUpload(@RequestParam("nombre") String nombre,
+    private ResponseEntity proveedorUpload(@RequestParam("nombre") String nombre,
                                    @RequestParam("codigo") String codigo,
                                    @RequestParam("categoria") String categoria,
-                                   @RequestParam("retencion") String retencion,
-                                   RedirectAttributes redirectAttributes){
-        String mensaje = proveedorService.guardarProveedor(codigo, nombre, categoria, retencion);
-        redirectAttributes.addFlashAttribute("mensaje", mensaje);
+                                   @RequestParam("retencion") String retencion){
+         proveedorService.guardarProveedor(codigo, nombre, categoria, retencion);
+         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/listar")
