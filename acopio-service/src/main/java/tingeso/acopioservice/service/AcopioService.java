@@ -51,8 +51,9 @@ public class AcopioService {
 
 
     @Generated
-    public String leerCsv(String archivo){
+    public AcopioEntity leerCsv(String archivo){
         BufferedReader bf = null;
+        AcopioEntity acopio = new AcopioEntity();
         acopioRepository.deleteAll();
         try{
             bf = new BufferedReader(new FileReader(archivo));
@@ -63,13 +64,25 @@ public class AcopioService {
                 if(count == 1){
                     count = 0;
                 }else{
-                    guardarDatos(bfRead.split(";")[0], bfRead.split(";")[1], bfRead.split(";")[2], bfRead.split(";")[3]);
+                    String a, b ,c, d;
+                    a = bfRead.split(";")[0];
+                    b = bfRead.split(";")[1];
+                    c =bfRead.split(";")[2];
+                    d = bfRead.split(";")[3];
+                    System.out.println(a);
+                    System.out.println(b);
+                    System.out.println(c);
+                    System.out.println(d);
+
+                  acopio = guardarDatos(a,b,c,d);
                     temp = temp + "\n" + bfRead;
                 }
             }
-            return "Acopio cargado con exito";
+            logg.info("Se ha cargado correctamente el archivo");
+            return acopio;
         }catch(Exception e){
-            return "Error al cargar el acopio";
+            logg.error("No se ha cargado el archivo");
+            return acopio;
         }finally{
             if(bf != null){
                 try{
@@ -81,7 +94,7 @@ public class AcopioService {
         }
     }
 
-    public void guardarDatos(String fecha, String turno, String proveedor, String kls_leche){
+    public AcopioEntity guardarDatos(String fecha, String turno, String proveedor, String kls_leche){
         AcopioEntity data = new AcopioEntity();
         data.setProveedor(proveedor);
         if(fecha != null){
@@ -95,6 +108,7 @@ public class AcopioService {
         data.setKls(Integer.valueOf(kls_leche));
         data.setTurno(turno);
         acopioRepository.save(data);
+        return data;
     }
 
 

@@ -1,5 +1,6 @@
 package tingeso.pagoservice.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,27 +19,30 @@ public class PagoService {
 
     @Autowired
     private PagoRepository pagoRepository;
+
+    @Autowired
+    ObjectMapper objectMapper;
     @Autowired
     private RestTemplate restTemplate;
 
     // Funciones Acopio
     public ArrayList<Double> obtenerKlsProveedor(String proveedor){
-        ArrayList<Double> kls = restTemplate.getForObject("http://acopio-service/acopios/kls/" + proveedor, ArrayList.class);
+        ArrayList<Double> kls = restTemplate.getForObject("http://acopio-service/acopio/kls/" + proveedor, ArrayList.class);
         return kls;
     }
 
     public ArrayList<Date> obtenerDiasDeProveedor(String proveedor){
-        ArrayList<Date> totalDias = restTemplate.getForObject("http://acopio-service/acopios/dias/" + proveedor, ArrayList.class);
+        ArrayList<Date> totalDias = restTemplate.getForObject("http://acopio-service/acopio/dias/" + proveedor, ArrayList.class);
         return totalDias;
     }
 
     public Integer obtenerDiasPorTurno(String proveedor, String turno){
-        Integer cantidadDias = restTemplate.getForObject("http://acopio-service/acopios/turnos/" + proveedor + "/" + turno, Integer.class);
+        Integer cantidadDias = restTemplate.getForObject("http://acopio-service/acopio/turnos/" + proveedor + "/" + turno, Integer.class);
         return cantidadDias;
     }
 
     public ArrayList<Acopio> obtenerAcopiosProveedor(String proveedor){
-        ArrayList<Acopio> acopiosProveedor = restTemplate.getForObject("http://acopio-service/acopios/" + proveedor, ArrayList.class);
+        ArrayList<Acopio> acopiosProveedor = restTemplate.getForObject("http://acopio-service/acopio/" + proveedor, ArrayList.class);
         return acopiosProveedor;
     }
 
@@ -52,12 +56,12 @@ public class PagoService {
     // Funciones Proveedor
 
     public ArrayList<Proveedor>  listarProveedores(){
-        ArrayList<Proveedor> proveedores = restTemplate.getForObject("http://laboratorio-service/proveedores/listar", ArrayList.class);
+        ArrayList<Proveedor> proveedores = restTemplate.getForObject("http://proveedor-service/proveedor/listar", ArrayList.class);
         return proveedores;
     }
 
     public Proveedor buscarProveedor(String codigo){
-        Proveedor proveedor = restTemplate.getForObject("http://laboratorio-service/proveedores/"+ codigo, Proveedor.class);
+        Proveedor proveedor = restTemplate.getForObject("http://proveedor-service/proveedor/"+ codigo, Proveedor.class);
         return proveedor;
     }
 

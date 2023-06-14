@@ -10,12 +10,12 @@ import tingeso.pagoservice.models.Proveedor;
 import tingeso.pagoservice.service.PagoService;
 import java.util.ArrayList;
 
-@Controller
+@RestController
 @RequestMapping("/pago")
 public class PagoController {
 
     @Autowired
-    private PagoService pagoService;
+    PagoService pagoService;
 
     @GetMapping("/searchProveedor")
     private String verProveedores(){

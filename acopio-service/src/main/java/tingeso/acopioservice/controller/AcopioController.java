@@ -39,10 +39,10 @@ public class AcopioController {
         return ResponseEntity.ok(acopioService.obtenerAcopiosProveedor(proveedor));
     }
 
-    @PostMapping
-    public void upload(@RequestParam("file")MultipartFile file, RedirectAttributes redirectAttributes){
+    @PostMapping("/guardar")
+    public ResponseEntity<AcopioEntity> upload(@RequestParam("file")MultipartFile file, RedirectAttributes redirectAttributes){
         acopioService.guardar(file);
-        String salida = acopioService.leerCsv("acopio.csv");
-        redirectAttributes.addFlashAttribute("mensaje", salida );
+        AcopioEntity acopio = acopioService.leerCsv("acopio.csv");
+        return ResponseEntity.ok(acopio);
     }
 }
