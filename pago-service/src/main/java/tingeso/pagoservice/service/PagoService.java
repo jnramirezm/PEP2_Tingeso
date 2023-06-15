@@ -1,6 +1,5 @@
 package tingeso.pagoservice.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

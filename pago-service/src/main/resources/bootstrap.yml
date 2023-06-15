@@ -1,4 +1,13 @@
 spring:
+  management:
+    security:
+      enabled: false
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+  config:
+    import: optional:configserver:http://localhost:8081
   application:
     name: pago-service
   cloud:
@@ -6,16 +15,10 @@ spring:
       enabled: true
       uri: http://localhost:8081
   datasource:
-    url: jdbc:postgresql://localhost:5432/pago?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:postgresql://localhost:5432/pago
     username: postgres
     password: 1234
   jpa:
     show-sql: true
     hibernate:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: create-drop
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: "*"
