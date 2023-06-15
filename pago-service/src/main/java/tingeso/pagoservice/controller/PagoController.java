@@ -24,11 +24,11 @@ public class PagoController {
 
 
     @GetMapping("/viewPlanilla/{codigo}")
-    private String verPlanilla(@PathVariable("codigo") String codigo, Model model){
+    private ResponseEntity<?> verPlanilla(@PathVariable("codigo") String codigo, Model model){
         pagoService.calcularPlantilla(codigo);
         PagoEntity pago = pagoService.findData(codigo);
         model.addAttribute("pago", pago);
-        return "viewPlanilla";
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/proveedores")

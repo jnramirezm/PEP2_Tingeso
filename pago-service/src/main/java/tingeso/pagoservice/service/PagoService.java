@@ -19,9 +19,6 @@ public class PagoService {
 
     @Autowired
     private PagoRepository pagoRepository;
-
-    @Autowired
-    ObjectMapper objectMapper;
     @Autowired
     private RestTemplate restTemplate;
 
