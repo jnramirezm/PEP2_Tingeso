@@ -27,14 +27,14 @@ public class ProveedorController {
     }
 
     @GetMapping
-    private ResponseEntity<ArrayList<ProveedorEntity>> listarProveedores(){
-        ArrayList<ProveedorEntity> proveedores;
+    private ResponseEntity<List<ProveedorEntity>> listarProveedores(){
+        List<ProveedorEntity> proveedores;
         proveedores = proveedorService.listarProveedores();
         return ResponseEntity.ok(proveedores);
     }
 
 
-    @GetMapping("/buscar/{codigo}")
+    @GetMapping("/{codigo}")
     private ResponseEntity<ProveedorEntity> buscarPorCodigo(@PathVariable("codigo") String codigo){
         return ResponseEntity.ok(proveedorService.buscarPorCodigo(codigo));
     }

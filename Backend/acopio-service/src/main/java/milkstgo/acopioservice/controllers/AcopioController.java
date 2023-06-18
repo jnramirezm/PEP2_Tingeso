@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/acopio")
@@ -19,12 +20,12 @@ public class AcopioController {
     private AcopioService acopioService;
 
     @GetMapping("/kls/{proveedor}")
-    public ResponseEntity<ArrayList<Double>> obtenerKlsProveedor(@PathVariable("proveedor") String proveedor){
+    public ResponseEntity<List<Double>> obtenerKlsProveedor(@PathVariable("proveedor") String proveedor){
         return ResponseEntity.ok(acopioService.obtenerKlsProveedor(proveedor));
     }
 
-    @GetMapping("/dias/{proveedor}/")
-    public ResponseEntity<ArrayList<Date>> obtenerDiasPorProveedor(@PathVariable("proveedor") String proveedor){
+    @GetMapping("/dias/{proveedor}")
+    public ResponseEntity<List<Date>> obtenerDiasPorProveedor(@PathVariable("proveedor") String proveedor){
         return ResponseEntity.ok(acopioService.obtenerDiasProveedor(proveedor));
     }
 
@@ -34,7 +35,7 @@ public class AcopioController {
     }
 
     @GetMapping("/{proveedor}")
-    public ResponseEntity<ArrayList<AcopioEntity>> obtenerAcopiosProveedor(@PathVariable("proveedor") String proveedor){
+    public ResponseEntity<List<AcopioEntity>> obtenerAcopiosProveedor(@PathVariable("proveedor") String proveedor){
         return ResponseEntity.ok(acopioService.obtenerAcopiosProveedor(proveedor));
     }
 

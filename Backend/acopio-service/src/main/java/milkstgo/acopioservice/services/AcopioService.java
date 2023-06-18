@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 
@@ -70,10 +71,6 @@ public class AcopioService {
                     b = bfRead.split(";")[1];
                     c =bfRead.split(";")[2];
                     d = bfRead.split(";")[3];
-                    System.out.println(a);
-                    System.out.println(b);
-                    System.out.println(c);
-                    System.out.println(d);
 
                     acopio = guardarDatos(a,b,c,d);
                     temp = temp + "\n" + bfRead;
@@ -113,11 +110,11 @@ public class AcopioService {
     }
 
 
-    public ArrayList<Double> obtenerKlsProveedor(String proveedor){
+    public List<Double> obtenerKlsProveedor(String proveedor){
         return acopioRepository.findAllByProveedor(proveedor);
     }
 
-    public ArrayList<Date> obtenerDiasProveedor(String proveedor){
+    public List<Date> obtenerDiasProveedor(String proveedor){
         return acopioRepository.findAllDays(proveedor);
     }
 
@@ -125,7 +122,7 @@ public class AcopioService {
         return acopioRepository.findAllDaysWhereTurno(proveedor, turno);
     }
 
-    public ArrayList<AcopioEntity> obtenerAcopiosProveedor(String proveedor){
+    public List<AcopioEntity> obtenerAcopiosProveedor(String proveedor){
         return acopioRepository.findByProveedor(proveedor);
     }
 

@@ -22,13 +22,13 @@ public class PagoService {
     private RestTemplate restTemplate;
 
     // Funciones Acopio
-    public ArrayList<Double> obtenerKlsProveedor(String proveedor){
-        ArrayList<Double> kls = restTemplate.getForObject("http://acopio-service/acopio/kls/" + proveedor, ArrayList.class);
+    public List<Double> obtenerKlsProveedor(String proveedor){
+        List<Double> kls = restTemplate.getForObject("http://acopio-service/acopio/kls/" + proveedor, List.class);
         return kls;
     }
 
-    public ArrayList<Date> obtenerDiasDeProveedor(String proveedor){
-        ArrayList<Date> totalDias = restTemplate.getForObject("http://acopio-service/acopio/dias/" + proveedor, ArrayList.class);
+    public List<Date> obtenerDiasDeProveedor(String proveedor){
+        List<Date> totalDias = restTemplate.getForObject("http://acopio-service/acopio/dias/" + proveedor, List.class);
         return totalDias;
     }
 
@@ -37,22 +37,22 @@ public class PagoService {
         return cantidadDias;
     }
 
-    public ArrayList<Acopio> obtenerAcopiosProveedor(String proveedor){
-        ArrayList<Acopio> acopiosProveedor = restTemplate.getForObject("http://acopio-service/acopio/" + proveedor, ArrayList.class);
+    public List<Acopio> obtenerAcopiosProveedor(String proveedor){
+        List<Acopio> acopiosProveedor = restTemplate.getForObject("http://acopio-service/acopio/" + proveedor, List.class);
         return acopiosProveedor;
     }
 
     // Funciones Laboratorio
 
-    public ArrayList<Laboratorio> obtenerLaboratoriosProveedor(String proveedor){
-        ArrayList<Laboratorio> laboratoriosProveedor = restTemplate.getForObject("http://laboratorio-service/laboratorio/" + proveedor, ArrayList.class);
-        return laboratoriosProveedor;
+    public List<Laboratorio> obtenerLaboratoriosProveedor(String proveedor){
+        Laboratorio[] laboratoriosProveedor = restTemplate.getForObject("http://laboratorio-service/laboratorio/" + proveedor, Laboratorio[].class);
+        return Arrays.stream(laboratoriosProveedor).toList();
     }
 
     // Funciones Proveedor
 
-    public ArrayList<Proveedor>  listarProveedores(){
-        ArrayList<Proveedor> proveedores = restTemplate.getForObject("http://proveedor-service/proveedor/listar", ArrayList.class);
+    public List<Proveedor>  listarProveedores(){
+        List<Proveedor> proveedores = restTemplate.getForObject("http://proveedor-service/proveedor", List.class);
         return proveedores;
     }
 
@@ -101,7 +101,7 @@ public class PagoService {
     }
 
     public double totalKilos(String proveedor){
-        ArrayList<Double> kls = obtenerKlsProveedor(proveedor);
+        List<Double> kls = obtenerKlsProveedor(proveedor);
         double total_kls = 0.0;
         for(double kl : kls){
             total_kls += kl;
@@ -110,7 +110,7 @@ public class PagoService {
     }
 
     public Double nro_envios(String proveedor){
-        ArrayList<Date> fechas;
+        List<Date> fechas;
         double cantidad_entregas;
         fechas  =  obtenerDiasDeProveedor(proveedor);
         cantidad_entregas = fechas.size();

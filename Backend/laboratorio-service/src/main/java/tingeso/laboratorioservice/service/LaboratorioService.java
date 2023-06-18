@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class LaboratorioService {
@@ -87,7 +88,7 @@ public class LaboratorioService {
     }
 
 
-    public ArrayList<LaboratorioEntity> buscarPorProveedor(String proveedor){
+    public List<LaboratorioEntity> buscarPorProveedor(String proveedor){
         return laboratorioRepository.findByProveedor(proveedor);
     }
 }

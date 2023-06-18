@@ -10,6 +10,7 @@ import tingeso.laboratorioservice.entity.LaboratorioEntity;
 import tingeso.laboratorioservice.service.LaboratorioService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/laboratorio")
@@ -20,15 +21,14 @@ public class LaboratorioController {
 
 
     @PostMapping
-    public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
+    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file){
         laboratorioService.guardar(file);
-        String salida = laboratorioService.leerCsv("datos.csv");
-        redirectAttributes.addFlashAttribute("mensaje", salida );
-     // return "redirect:/datoUpload";
+        laboratorioService.leerCsv("datos.csv");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{proveedor}")
-    public ResponseEntity<ArrayList<LaboratorioEntity>> buscarLaboratorioPorProveedor(@PathVariable("proveedor") String proveedor){
+    public ResponseEntity<List<LaboratorioEntity>> buscarLaboratorioPorProveedor(@PathVariable("proveedor") String proveedor){
         return ResponseEntity.ok(laboratorioService.buscarPorProveedor(proveedor));
     }
 

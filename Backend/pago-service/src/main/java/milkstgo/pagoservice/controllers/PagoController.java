@@ -23,15 +23,15 @@ public class PagoController {
 
 
     @GetMapping("/planilla/{codigo}")
-    private ResponseEntity<?> verPlanilla(@PathVariable("codigo") String codigo){
+    private ResponseEntity<PagoEntity> verPlanilla(@PathVariable("codigo") String codigo){
         pagoService.calcularPlantilla(codigo);
         PagoEntity pago = pagoService.findData(codigo);
        // model.addAttribute("pago", pago);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(pago);
     }
 
     @GetMapping("/proveedores")
-    public ResponseEntity<ArrayList<Proveedor>> listar(){
+    public ResponseEntity<List<Proveedor>> listar(){
         return ResponseEntity.ok(pagoService.listarProveedores());
     }
 }

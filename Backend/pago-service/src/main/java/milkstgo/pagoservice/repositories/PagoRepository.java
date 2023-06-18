@@ -16,6 +16,6 @@ public interface PagoRepository extends JpaRepository<PagoEntity, Integer> {
     Date findLastQuincena();
 
     @Query("Select p from PagoEntity p where p.proveedor = :proveedor order by p.quincena desc")
-    ArrayList<PagoEntity> findByProveedor(@Param("proveedor") String proveedor);
+    List<PagoEntity> findByProveedor(@Param("proveedor") String proveedor);
 
 }
