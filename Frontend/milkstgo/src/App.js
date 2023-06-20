@@ -6,6 +6,7 @@ import ListarProveedoresComponent from './components/ListarProveedoresComponent'
 import CargarProveedorComponent from './components/CargarProveedorComponent';
 import InicioComponent from './components/InicioComponent';
 import CargarLaboratorioComponent from './components/CargarLaboratorioComponent';
+import PlanillaProveedorComponent from './components/PlanillaProveedorComponent';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <BrowserRouter>
           <Switch>
+            <Route path="/planilla/:codigo" component={PlanillaProveedorComponent} />
             <Route path="/cargarProveedor" component={CargarProveedorComponent} />
             <Route path="/proveedores" component={ListarProveedoresComponent} />
             <Route path="/acopio" component={CargarAcopioComponent} />

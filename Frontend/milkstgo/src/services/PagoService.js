@@ -4,8 +4,8 @@ const API_URL = 'http://localhost:8080/pago'
 
 class PagoService {
 
-    verPlanillas(codigo){
-        return axios.get(API_URL + '/' + codigo)
+    getPlanilla(codigo){
+        return axios.get(API_URL + '/planilla/' + codigo)
     }
 
 }

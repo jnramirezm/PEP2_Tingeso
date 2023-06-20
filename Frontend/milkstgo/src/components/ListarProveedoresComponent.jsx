@@ -9,7 +9,11 @@ class ListarProveedoresComponent extends Component {
         }
     }
 
-    
+    crearPlanilla(codigo) {
+    /*    this.props.history.push(`/planilla/${codigo}`);*/
+        window.location.href = `/planilla/${codigo}`;
+
+    }
 
     componentDidMount() {
         ProveedorService.getProveedores().then((res) => {
@@ -30,6 +34,7 @@ class ListarProveedoresComponent extends Component {
                             <th>Categoria</th>
                             <th>Retencion</th>
                             <th>Codigo</th>
+                            <th>Planilla</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +46,7 @@ class ListarProveedoresComponent extends Component {
                                         <td>{proveedor.categoria}</td>
                                         <td>{proveedor.retencion}</td>
                                         <td>{proveedor.codigo}</td>
+                                        <td> <button onClick={() => this.crearPlanilla(proveedor.codigo)}> Planilla </button> </td>
                                     </tr>
                             )
                         }
