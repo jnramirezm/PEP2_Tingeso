@@ -61,6 +61,7 @@
 				<version>${parent.version}</version>
 			</plugin>
 		</plugins>
+		<finalName>eureka-service</finalName>
 	</build>
 
 </project>

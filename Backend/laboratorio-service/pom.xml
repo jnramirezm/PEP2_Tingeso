@@ -90,6 +90,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>laboratorio-service</finalName>
 	</build>
 
 </project>
