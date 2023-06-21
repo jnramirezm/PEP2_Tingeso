@@ -2,10 +2,9 @@ server:
   port: 8761
 eureka:
   client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: 10.105.172.136:8761/eureka}
+    fetch-registry: false
+    register-with-eureka: false
+    service-url: 
+      default-zone: http://127.0.0.1:54452/eureka
   instance:
-    hostname: 10.105.125.253
     prefer-ip-address: true
