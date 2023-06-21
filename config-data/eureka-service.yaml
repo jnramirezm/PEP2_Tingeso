@@ -5,7 +5,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: ${eureka_url:http://10.105.125.253:8761/eureka}
+      defaultZone: 10.105.172.136:8761/eureka}
   instance:
     hostname: 10.105.125.253
     prefer-ip-address: true
