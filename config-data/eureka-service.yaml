@@ -7,4 +7,4 @@ eureka:
     service-url: 
       default-zone: http://127.0.0.1:54452/eureka
   instance:
-    prefer-ip-address: true
+    instance-id: eureka-service:8761
