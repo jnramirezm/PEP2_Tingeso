@@ -6,6 +6,8 @@ eureka:
     register-with-eureka: false
     service-url: 
       default-zone: http://eureka-service:8761/eureka
+      additional-zones: http://10.106.55.50:8761/eureka
   instance:
+    prefer-ip-address: true
     hostname: 10.106.55.50
     instance-id: eureka-service:8761
