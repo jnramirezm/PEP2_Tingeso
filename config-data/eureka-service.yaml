@@ -5,7 +5,7 @@ eureka:
     fetch-registry: false
     register-with-eureka: false
     serviceUrl:
-      defaultZone: http://eureka-service.default.svc.cluster.local:8761/eureka/
+      defaultZone: http://eureka-service.default.svc.cluster.local:8761/eureka/,http://10.106.55.50:8761/eureka/
       additional-zones: http://10.106.55.50:8761/eureka
   instance:
     preferIpAddress: true
