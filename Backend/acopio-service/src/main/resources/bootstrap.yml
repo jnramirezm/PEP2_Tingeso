@@ -4,7 +4,7 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8081
+      uri: http://config-service:8081
   datasource:
     url: jdbc:postgresql://localhost:5432/acopio
     username: postgres
@@ -17,3 +17,9 @@ management:
     web:
       exposure:
         include: "*"
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-client:8761/eureka/
