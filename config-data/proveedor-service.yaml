@@ -7,4 +7,4 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka-service.default.svc.cluster.local:8761/eureka/
   instance:
-    instance-id: http://eureka-service.default.svc.cluster.local:8082/
+    instance-id: http://proveedor-service.default.svc.cluster.local:8082/

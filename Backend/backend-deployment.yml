@@ -16,7 +16,7 @@ spec:
       - name: config-service
         image: jramirezmo/config-service:latest
         ports:
-        - containerPort: 8006
+        - containerPort: 8081
 
 ---
 apiVersion: apps/v1
@@ -62,7 +62,7 @@ spec:
       - name: acopio-service
         image: jramirezmo/acopio-service:latest
         ports:
-        - containerPort: 8001
+        - containerPort: 8083
         env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:postgresql://postgres-acopio:5432/acopio
@@ -90,7 +90,7 @@ spec:
       - name: proveedor-service
         image: jramirezmo/proveedor-service:latest
         ports:
-        - containerPort: 8002
+        - containerPort: 8082
         env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:postgresql://postgres-proveedor:5432/proveedor
@@ -118,7 +118,7 @@ spec:
       - name: laboratorio-service
         image: jramirezmo/laboratorio-service:latest
         ports:
-        - containerPort: 8003
+        - containerPort: 8084
         env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:postgresql://postgres-laboratorio:5432/laboratorio
@@ -146,7 +146,7 @@ spec:
       - name: pago-service
         image: jramirezmo/pago-service:latest
         ports:
-        - containerPort: 8004
+        - containerPort: 8085
         env:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:postgresql://postgres-pago:5432/pago
@@ -173,4 +173,4 @@ spec:
       - name: gateway-service
         image: jramirezmo/gateway-service:latest
         ports:
-        - containerPort: 8007
+        - containerPort: 8080
