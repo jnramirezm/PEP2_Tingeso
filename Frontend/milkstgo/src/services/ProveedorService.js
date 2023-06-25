@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://127.0.0.1:64804/proveedor'
+const API_URL = 'http://127.0.0.1:64586/proveedor'
 
 class ProveedorService {
 

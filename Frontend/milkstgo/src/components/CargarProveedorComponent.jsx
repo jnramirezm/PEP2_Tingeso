@@ -40,7 +40,7 @@ class CargarProveedorComponent extends Component {
 
         onClickHandler = (e) => {
             e.preventDefault();
-            ProveedorService.cargarProveedor(this.state.nombre, this.state.categoria, this.state.retencion, this.state.codigo).then(res => {
+            ProveedorService.cargarProveedor(this.state.nombre, this.state.codigo, this.state.categoria, this.state.retencion).then(res => {
                 console.log(res);
             } );
     }
