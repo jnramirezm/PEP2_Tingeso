@@ -4,8 +4,8 @@ import 'rsuite/dist/rsuite.min.css';
 
 
 const App = () => (
-  <Navbar>
-    <Navbar.Brand href="/">Home</Navbar.Brand>
+  <Navbar className='nav'>
+    <Navbar.Brand className="buton" href="/">Home</Navbar.Brand>
   </Navbar>
 );
   

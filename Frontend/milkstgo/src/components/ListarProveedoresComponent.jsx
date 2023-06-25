@@ -27,7 +27,7 @@ class ListarProveedoresComponent extends Component {
         return (
             <div className="container">
                 <h1>Listar Proveedores</h1>
-                <table className="table table-striped">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -46,7 +46,7 @@ class ListarProveedoresComponent extends Component {
                                         <td>{proveedor.categoria}</td>
                                         <td>{proveedor.retencion}</td>
                                         <td>{proveedor.codigo}</td>
-                                        <td> <button onClick={() => this.crearPlanilla(proveedor.codigo)}> Planilla </button> </td>
+                                        <td> <button className="buton3" onClick={() => this.crearPlanilla(proveedor.codigo)}> Ver Planilla </button> </td>
                                     </tr>
                             )
                         }

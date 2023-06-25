@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './Inicio.css';
 
 
 export default class inicioComponent extends Component {
@@ -8,19 +9,19 @@ export default class inicioComponent extends Component {
         window.location.href = dir;
     }
 
-    render() {
-        // 5 botones
 
+    render() {
         return (
-            <div>
-                <h1>Inicio</h1>
-                <button type="button" className="btn btn-success btn-block" onClick={() => this.ref('/cargarProveedor')}>Cargar Proveedor</button>
-                <button type="button" className="btn btn-success btn-block" onClick={() => this.ref('/acopio')}>Cargar Acopio</button>
-                <button type="button" className="btn btn-success btn-block" onClick={() => this.ref('/proveedores')}>Listar Proveedores</button>
-                <button type="button" className="btn btn-success btn-block" onClick={() => this.ref('/cargarLaboratorios')}>Cargar Laboratorio</button>
-            </div>
+            <div className="container">
+            <h1 className="title">MilkStgo</h1>
+                <a href="/cargarProveedor" className="btn">Cargar Proveedor</a>
+                <a href="/acopio" className="btn">Cargar Acopio</a>
+                <a href="/proveedores" className="btn">Listar Proveedores</a>
+                <a href="/cargarLaboratorios" className="btn">Cargar Laboratorio</a>
+        </div>
         );
     }
 
 
 }
+

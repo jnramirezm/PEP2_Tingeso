@@ -47,7 +47,7 @@ class CargarProveedorComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className= "container">
                 <h1>Cargar Proveedor</h1>
                 <form>
                     <div className="form-group">
@@ -66,7 +66,7 @@ class CargarProveedorComponent extends Component {
                         <label>Codigo</label>
                         <input type="text" className="form-control" placeholder="Codigo" onChange={this.onCodigoChange}/>
                     </div>
-                    <button type="submit" className="btn btn-success btn-block" onClick={this.onClickHandler}>Cargar</button>
+                    <button type="submit" className="btnn btn-success btn-block" onClick={this.onClickHandler}>Cargar</button>
                 </form>
             </div>
         );

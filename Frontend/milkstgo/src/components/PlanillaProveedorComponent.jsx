@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import PagoService from "../services/PagoService";
-import { FlexboxGrid } from "rsuite";
 
 class PlanillaProveedorComponent extends Component {
 
@@ -14,41 +13,41 @@ class PlanillaProveedorComponent extends Component {
 
     componentDidMount() {
         PagoService.getPlanilla(this.state.codigo).then((res) => {
-            console.log(this.props.match.params.codigo);
-            console.log(res.data)
+            console.log(res.data);
+            if(Array.isArray(this.state.pago) && this.state.pago.length === 0) {
             this.setState({
                 pago: res.data,
                 
             })
-        });
+        }
+    });
     }
 
     render() {
         return (
-            /* 4 tablas hacia abajo */
             <div className="container">
 
-                <h1>Planilla </h1>
-                <table className="table table-striped">
+                <h1 className="planilla">Planilla de pago</h1>
+                <table className="table">
                     <thead>
                     <tr>
                         <th>Codigo</th>
+                        <th></th>
                         <th>Fecha</th>
-                        <th>Nombre</th>
                     </tr>
                     </thead>
-                    <tbody data = {this.state.pago}>
+                    <tbody>
                         <tr >
                             <td > {this.state.pago.proveedor}</td> 
+                            <td></td>
                             <td>{this.state.pago.quincena}</td>
-                            <td>{this.state.pago.nombre}</td>
                         </tr>
 
                     </tbody>
                 </table>
-                <h2>Datos Acopio </h2>
-                <table style = {{flexDirection:"center",textAlign: "center", border: "1px solid"}} >
-                    <thead style={{border: "1px solid"}}>
+                <h2 className="planilla2">Datos Acopio </h2>
+                <table className="table">
+                    <thead>
                     <tr style={{borderRight:"5px", minWidth:"100"}}>
                         <th style={{paddingLeft:"5px"}}> Total KG Leche  </th>
                         <th style={{paddingLeft:"5px"}}>  Promedio diario </th>
@@ -71,9 +70,9 @@ class PlanillaProveedorComponent extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <h2>Datos Pago </h2>
-                <table style = {{flexDirection:"center",textAlign: "center", border: "1px solid"}} >
-                    <thead style={{border: "1px solid"}}>
+                <h2 className="planilla2" >Datos Pago </h2>
+                <table className="table">
+                    <thead >
                     <tr style={{borderRight:"5px", minWidth:"100"}}>
                         <th style={{paddingLeft:"5px"}}> Pago Leche  </th>
                         <th style={{paddingLeft:"5px"}}> Pago Grasa </th>
@@ -96,9 +95,9 @@ class PlanillaProveedorComponent extends Component {
                         </tr>
                     </tbody>
                 </table>
-                <h2> Pago FINAL </h2>
-                <table style = {{flexDirection:"center",textAlign: "center", border: "1px solid"}} >
-                    <thead style={{border: "1px solid"}}>
+                <h2 className="planilla2" > Pago FINAL </h2>
+                <table className="table" >
+                    <thead>
                     <tr style={{borderRight:"5px", minWidth:"100"}}>
                         <th style={{paddingLeft:"5px"}}> Pago Total  </th>
                         <th style={{paddingLeft:"5px"}}> Retencion </th>

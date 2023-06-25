@@ -26,10 +26,10 @@ class CargarLaboratorioComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container'>
                 <h1>Subir Laboratorio</h1>
-                <input type="file" name="file" onChange={this.onChangeHandler} />
-                <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+                <input className='archivo' type="file" name="file" onChange={this.onChangeHandler} />
+                <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Cargar Datos</button>
             </div>
         );
     }
