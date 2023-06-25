@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: config-service
+  labels:
+    app: config-service
 spec:
   selector:
     app: config-service
@@ -16,6 +18,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: eureka-service
+  labels:
+    app: eureka-service
 spec:
   selector:
     app: eureka-service
@@ -30,6 +34,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: proveedor-service
+  labels:
+    app: proveedor-service
 spec:
   selector:
     app: proveedor-service
@@ -44,6 +50,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: acopio-service
+  labels:
+    app: acopio-service
 spec:
   selector:
     app: acopio-service
@@ -58,6 +66,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: laboratorio-service
+  labels:
+    app: laboratorio-service
 spec:
   selector:
     app: laboratorio-service
@@ -72,6 +82,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pago-service
+  labels:
+    app: pago-service
 spec:
   selector:
     app: pago-service
@@ -86,6 +98,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gateway-service
+  labels:
+    app: gateway-service
 spec:
   selector:
     app: gateway-service
