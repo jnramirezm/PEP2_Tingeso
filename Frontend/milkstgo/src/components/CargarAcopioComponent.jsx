@@ -22,6 +22,7 @@ class CargarAcopioComponent extends Component {
         AcopioService.cargarAcopios(data).then(res => {
             console.log(res);
         })
+        alert("Acopios cargados correctamente")
     }
 
     render() {

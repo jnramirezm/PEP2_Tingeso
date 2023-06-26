@@ -22,6 +22,7 @@ class CargarLaboratorioComponent extends Component {
         LaboratorioService.cargarLaboratorios(data).then(res => {
             console.log(res);
         })
+        alert("Datos cargados correctamente")
     }
 
     render() {
